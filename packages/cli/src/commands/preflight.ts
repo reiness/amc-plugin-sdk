@@ -66,8 +66,8 @@ export async function runPreflight(
   results.push(checkDeclaredPermissions(manifest.permissions))
   results.push(checkListingCompleteness({
     hasReadme: findRootReadme(cwd) !== null,
-    screenshots: manifest.plugin?.screenshots,
-    links: manifest.plugin?.links
+    screenshots: manifest.plugin.screenshots,
+    links: manifest.plugin.links
   }))
 
   const packagePath = opts.packagePath ?? findPackage(cwd)
