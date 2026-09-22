@@ -11,6 +11,8 @@ together.
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-09-22
+
 ### Added — `plugin.screenshots` and `plugin.links` on the manifest (2026-09-22)
 
 The marketplace detail page renders a screenshot gallery and a Support tab, and the
