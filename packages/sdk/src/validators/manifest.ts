@@ -52,9 +52,8 @@ const pluginInfoSchema = z.object({
   // Bounded (≤10 tags, ≤30 chars each) so a manifest can't flood search/UI.
   // Kept in sync with PluginManifest.plugin.tags and the AMC host validator.
   tags: z.array(z.string().min(1).max(30)).max(10).optional(),
-  // Kept in sync with the AMC host validator (plugin-manifest-validator.ts
-  // PLUGIN_SCREENSHOTS_MAX / PLUGIN_SCREENSHOT_URL_MAX / PLUGIN_LINK_URL_MAX) and
-  // the marketplace's sanitizeScreenshotUrls (upload-plugin.ts).
+  // Marketplace listing fields — bounds and host citations live at
+  // LISTING_URL_MAX / SCREENSHOTS_MAX above.
   screenshots: z.array(listingUrl).max(SCREENSHOTS_MAX).optional(),
   links: z
     .object({

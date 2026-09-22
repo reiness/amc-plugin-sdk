@@ -67,7 +67,7 @@ export async function runPreflight(
   results.push(checkListingCompleteness({
     hasReadme: findRootReadme(cwd) !== null,
     screenshots: manifest.plugin?.screenshots,
-    links: manifest.plugin?.links,
+    links: manifest.plugin?.links
   }))
 
   const packagePath = opts.packagePath ?? findPackage(cwd)
