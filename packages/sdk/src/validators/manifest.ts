@@ -21,9 +21,12 @@ const sqlIdentMessage =
 const sqlIdent = (): z.ZodString =>
   z.string().min(1).regex(sqlIdentRegex, sqlIdentMessage)
 
-// Marketplace listing bounds. Kept in sync with the AMC host validator
-// (plugin-manifest-validator.ts PLUGIN_SCREENSHOTS_MAX / PLUGIN_SCREENSHOT_URL_MAX /
-// PLUGIN_LINK_URL_MAX) and the marketplace's sanitizeScreenshotUrls (upload-plugin.ts).
+// Marketplace listing bounds — ONE URL cap shared by screenshots and links. Kept in
+// sync with the AMC host validator (plugin-manifest-validator.ts: PLUGIN_SCREENSHOTS_MAX,
+// plus PLUGIN_SCREENSHOT_URL_MAX and PLUGIN_LINK_URL_MAX, which are both 2048) and the
+// marketplace's sanitizeScreenshotUrls (upload-plugin.ts). The host-parity test reads the
+// same numbers from __tests__/fixtures/host-mirror.ts (HOST_LISTING_BOUNDS), so a host
+// cap change fails there instead of drifting silently.
 const LISTING_URL_MAX = 2048
 const SCREENSHOTS_MAX = 8
 
